@@ -1,0 +1,10 @@
+name = "RLExperiments"
+uuid = "96bb3168-0c53-4061-ac1e-4e355d4cdb6e"
+authors = ["vishal <95016059+gyanantaran@users.noreply.github.com>"]
+version = "0.1.0"
+
+[deps]
+Pluto = "c3e4b0f8-55cb-11ea-2926-15256bba5781"
+
+[compat]
+Pluto = "0.20.10"
