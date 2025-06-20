@@ -4,7 +4,13 @@ authors = ["vishal <95016059+gyanantaran@users.noreply.github.com>"]
 version = "0.1.0"
 
 [deps]
+Distributions = "31c24e10-a181-5473-b8eb-7969acd0382f"
+GLMakie = "e9467ef8-e4e7-5192-8a1a-b1aee30e663a"
 Pluto = "c3e4b0f8-55cb-11ea-2926-15256bba5781"
+StatsBase = "2913bbd2-ae8a-5f71-8c99-4fb6c76f3a91"
 
 [compat]
+Distributions = "0.25.120"
+GLMakie = "0.12.0"
 Pluto = "0.20.10"
+StatsBase = "0.34.5"
