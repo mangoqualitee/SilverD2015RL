@@ -1,3 +1,5 @@
+# todo: write modular components, and make places for those boxes to be fitted:
+# gpi[pe,pi], pe[visit,on/ffline], pi[greedy/egreedy]
 module MCPrediction
 
 import Distributions
@@ -119,5 +121,25 @@ function plot(v_π₁::StateValue)
 	fig
 end
 # }}} === PLOTTING-STATEVALUE
+
+
+# PRETTY-PRINTING === {{{
+
+function Base.show(io::IO, ::MIME"text/plain", actionvalue::ActionValue)
+	print(io, "[\n")
+	for i in 1:size(actionvalue)[1]
+	    print(io, i, ' ', actionvalue[i, :], '\n')  # todo, format: right-align the state number column
+    end
+	print(io, "]\n")
+end
+
+function Base.show(io::IO, actionvalue::ActionValue)
+	print(io, "[\n")
+	for i in 1:size(actionvalue)[1]
+	    print(io, i, ' ', actionvalue[i, :], '\n')  # todo, format: right-align the state number column
+    end
+	print(io, "]\n")
+end
+# }}} === PRETTY-PRINTING
 
 end # module MCPrediction
