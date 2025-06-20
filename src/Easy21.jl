@@ -98,6 +98,22 @@ function step(s::State, a::Action)::EnvResult
     end
 end
 
+function initialstate()::Easy21.StartState
+	rand(startstates)
+end
+
+function stateindex(s::State)
+    i = findfirst(x -> x==s, states)
+    isnothing(i) && error("State $s not found in 𝒮")
+    i′ = findlast(x -> x==s, states)
+    @assert i == i′ "Multiple occurrences of $s in 𝒮: at $i and $i′"
+    i
+end
+
+function actionindex(a::Action)
+	Int(a) + 1
+end
+
 function main()
     playerfirstcard = abs(draw())
     dealerfirstcard = abs(draw())
