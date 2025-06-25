@@ -99,7 +99,7 @@ function step(s::State, a::Action)::EnvResult
 end
 
 function initialstate()::Easy21.StartState
-	rand(startstates)
+    rand(startstates)
 end
 
 function stateindex(s::State)
@@ -111,7 +111,7 @@ function stateindex(s::State)
 end
 
 function actionindex(a::Action)
-	Int(a) + 1
+    Int(a) + 1
 end
 
 function main()
