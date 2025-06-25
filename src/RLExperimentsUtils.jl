@@ -13,9 +13,13 @@ macro do_while(body, condition)
 end
 
 function sample(a, b)
-	StatsBase.sample(a, StatsBase.Weights(b))
+    StatsBase.sample(a, StatsBase.Weights(b))
 end
 
-isconverged(a, b)::Bool = (LinearAlgebra.norm(abs.(a - b), Inf) < (global τ = 1e-1))
+function isconverged(a, b)::Bool
+    diff = a - b
+    Δ = (LinearAlgebra.norm(abs.(diff), Inf))
+    Δ < (global τ = 1e-5)
+end
 
 end # module RLExperimentsUtils
