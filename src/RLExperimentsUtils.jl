@@ -19,7 +19,7 @@ end
 function isconverged(a, b)::Bool
     diff = a - b
     Δ = (LinearAlgebra.norm(abs.(diff), Inf))
-    Δ < (global τ = 1e-5)
+    Δ < (global τ = 1e-6)
 end
 
 end # module RLExperimentsUtils

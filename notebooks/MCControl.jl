@@ -38,8 +38,8 @@ function policyimprovement(q::ActionValue, ϵₜ::Vector{Float64})::Policy
 	slen, alen = size(q)
 	π̃ = zeros((size(q))...)
 	for si in 1:slen
-		aᵒ = argmax(q[si, :])
 		ϵ = ϵₜ[si]
+		aᵒ = argmax(q[si, :])
 		π̃[si, aᵒ] += (1-ϵ)
 		π̃[si, :] .+= ϵ/alen
 	end
@@ -131,7 +131,7 @@ end
 function gpi(π₁; k::UInt64)::Policy
 	mcpe = MCPE((UInt.(size(π₁)))...)
 	mcpeold = MCPE((UInt.(size(π₁)))...)
-	n₀ = 512
+	n₀ = 3500
 	
 	slen, alen = size(π₁)
 	π̂ = copy(π₁)
@@ -186,7 +186,7 @@ end
 # ╔═╡ 7b9607bf-c6c0-4355-b97c-e3b8d7fbbb70
 begin
 	π₁ = createrandompolicy()
-	πᵒ = gpi(π₁; k=UInt(500000))
+	πᵒ = gpi(π₁; k=UInt(100000))
 	mcpe = MCPE((UInt.(size(πᵒ)))...)
 end
 
@@ -208,10 +208,10 @@ end
 # ╠═6e30f4a2-8edd-4eeb-9321-83f09b3e53fe
 # ╟─9bfeca5d-2205-444b-9613-678983d8479e
 # ╟─167f2b0a-e60b-4756-a485-0f88e8b5a830
-# ╟─f68e24d5-46bb-4d0d-bb25-0f1ae4903121
+# ╠═f68e24d5-46bb-4d0d-bb25-0f1ae4903121
 # ╟─c9eb93e4-33f2-4099-9097-b6e5e3ecdd60
 # ╟─aa4a683c-97f0-4efe-8ff1-22805db02530
-# ╟─c3c40a1b-dd7c-491a-b8cb-db881e26b3a9
+# ╠═c3c40a1b-dd7c-491a-b8cb-db881e26b3a9
 # ╟─3e915b76-b08f-4e74-a585-133f006f80d9
 # ╠═7b9607bf-c6c0-4355-b97c-e3b8d7fbbb70
 # ╟─9a10a464-0476-427c-81d1-a5eca5f74af9
